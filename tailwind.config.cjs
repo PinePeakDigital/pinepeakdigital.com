@@ -18,12 +18,12 @@ module.exports = {
         frost: {
           DEFAULT: "#8ea4c4",
           light: "#b4c5dc",
-          dark: "#5a7399",
+          dark: "#7b93b4",
         },
         sage: {
-          DEFAULT: "#6b9e74",
-          light: "#83b68b",
-          dark: "#4f7a56",
+          DEFAULT: "#4f7a56",
+          light: "#6b9e74",
+          dark: "#3d6344",
         },
       },
       fontFamily: {

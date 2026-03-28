@@ -8,7 +8,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "a11y": "node scripts/a11y.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^3.1.2",
@@ -30,6 +31,12 @@
   },
   "devDependencies": {
     "@rollup/plugin-yaml": "^4.1.2",
+    "pa11y": "^9.1.1",
     "prettier-plugin-astro": "^0.14.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "puppeteer"
+    ]
   }
 }
