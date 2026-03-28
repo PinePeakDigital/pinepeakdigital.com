@@ -27,28 +27,39 @@ import Container from "@components/container.astro";
   ></div>
 
   <Container class="relative z-10">
-    <div class="max-w-3xl">
-      <!-- Typographic accent -->
-      <div class="flex items-center gap-3 mb-8">
-        <div class="h-px w-10 bg-sage-light/60"></div>
-        <span
-          class="text-frost-dark text-xs font-medium uppercase tracking-[0.2em]"
-          >Web Development Agency</span
-        >
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div>
+        <!-- Typographic accent -->
+        <div class="flex items-center gap-3 mb-8">
+          <div class="h-px w-10 bg-sage-light/60"></div>
+          <span
+            class="text-frost-dark text-xs font-medium uppercase tracking-[0.2em]"
+            >Web Development Agency</span
+          >
+        </div>
+
+        <h1
+          class="font-display text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] text-white leading-[1.05] tracking-tight">
+          Building the<br />Modern Web
+        </h1>
+        <p
+          class="mt-8 text-lg md:text-xl text-frost leading-relaxed max-w-2xl">
+          Our agency specializes in modern full-stack web applications using the
+          latest technologies. We build websites, web applications, server
+          backends, and mobile apps that are fast, secure, and scalable.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row gap-4">
+          <Link href="/contact">Contact Us</Link>
+          <Link href="/about" style="outline">About Us</Link>
+        </div>
       </div>
 
-      <h1
-        class="font-display text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] text-white leading-[1.05] tracking-tight">
-        Building the<br />Modern Web
-      </h1>
-      <p class="mt-8 text-lg md:text-xl text-frost leading-relaxed max-w-2xl">
-        Our agency specializes in modern full-stack web applications using the
-        latest technologies. We build websites, web applications, server
-        backends, and mobile apps that are fast, secure, and scalable.
-      </p>
-      <div class="mt-10 flex flex-col sm:flex-row gap-4">
-        <Link href="/contact">Contact Us</Link>
-        <Link href="/about" style="outline">About Us</Link>
+      <div class="hidden lg:block">
+        <img
+          src="/computer.svg"
+          alt="Illustration of a computer workstation"
+          class="w-full max-w-lg mx-auto"
+        />
       </div>
     </div>
   </Container>
