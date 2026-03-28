@@ -38,7 +38,7 @@ module.exports = {
           ...defaultTheme.fontFamily.serif,
         ],
         mono: [
-          "DM Mono",
+          "Space Mono",
           ...defaultTheme.fontFamily.mono,
         ],
       },

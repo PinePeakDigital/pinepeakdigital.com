@@ -23,12 +23,12 @@ importers:
       '@fontsource-variable/outfit':
         specifier: ^5.2.8
         version: 5.2.8
-      '@fontsource/dm-mono':
-        specifier: ^5.2.7
-        version: 5.2.7
       '@fontsource/dm-serif-display':
         specifier: ^5.2.8
         version: 5.2.8
+      '@fontsource/space-mono':
+        specifier: ^5.2.9
+        version: 5.2.9
       '@iconify-json/bx':
         specifier: ^1.1.10
         version: 1.1.10
@@ -414,11 +414,11 @@ packages:
   '@fontsource-variable/outfit@5.2.8':
     resolution: {integrity: sha512-4oUDCZx/Tcz6HZP423w/niqEH31Gks5IsqHV2ZZz1qKHaVIZdj2f0/S1IK2n8jl6Xo0o3N+3RjNHlV9R73ozQA==}
 
-  '@fontsource/dm-mono@5.2.7':
-    resolution: {integrity: sha512-Ma1az2atTVgQWuOWwjuxx26p/6A6CU9HBNKq1CFV6YKpKhpswnf9ry9Ql4+T6bTZzkdtSfS6tjJvqZOljVzIFQ==}
-
   '@fontsource/dm-serif-display@5.2.8':
     resolution: {integrity: sha512-GYSDSlGU6vyhv9a5MwaiVNf9HCuSVpK8hEFRyG4NNDHCDeHiX7YHDAcWsaoLKKcfXLgWG9YkBkk9T3SxM4rAjQ==}
+
+  '@fontsource/space-mono@5.2.9':
+    resolution: {integrity: sha512-b61faFOHEISQ/pD25G+cfGY9o/WW6lRv6hBQQfpWvEJ4y1V+S4gmth95EVyBE2VL3qDYHeVQ8nBzrplzdXTDDg==}
 
   '@iconify-json/bx@1.1.10':
     resolution: {integrity: sha512-4JzMDYhs/hkU9mO8nNMNKZwHn706oQaD46URyUuD4fP/XAWGf01vg6wKITmQseEHsHDrtKAXjwcumfnTUDi3OQ==}
@@ -3291,9 +3291,9 @@ snapshots:
 
   '@fontsource-variable/outfit@5.2.8': {}
 
-  '@fontsource/dm-mono@5.2.7': {}
-
   '@fontsource/dm-serif-display@5.2.8': {}
+
+  '@fontsource/space-mono@5.2.9': {}
 
   '@iconify-json/bx@1.1.10':
     dependencies:
