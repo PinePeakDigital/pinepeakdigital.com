@@ -19,63 +19,85 @@ const menuitems: {
     path: "/about",
   },
   {
+    title: "Process",
+    path: "/process",
+  },
+  {
     title: "Contact",
     path: "/contact",
   },
 ];
 ---
 
-<Container>
-  <header class="flex flex-col lg:flex-row justify-between items-center my-5">
-    <Astronav>
-      <div class="flex w-full lg:w-auto items-center justify-between">
-        <a href="/" class="text-lg"
-          ><span class="font-bold text-slate-800">Pine Peak Digital</span>
-        </a>
-        <div class="block lg:hidden">
-          <MenuIcon class="w-4 h-4 text-gray-800" />
+<header
+  class="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.06] bg-midnight/80 backdrop-blur-xl">
+  <Container>
+    <nav class="flex flex-col lg:flex-row justify-between items-center py-4">
+      <Astronav>
+        <div class="flex w-full lg:w-auto items-center justify-between">
+          <a href="/" class="flex items-center gap-2.5 group">
+            <svg
+              width="22"
+              height="18"
+              viewBox="0 0 22 18"
+              fill="none"
+              class="text-sage transition-colors group-hover:text-sage-light">
+              <path
+                d="M7 18L0 6l7-6 4 5 4-5 7 6-7 12H7z"
+                fill="currentColor"
+                opacity="0.35"></path>
+              <path d="M11 0l4 5 7 6-7 12h-4L7 18l-3-5 7-13z" fill="currentColor"
+              ></path>
+            </svg>
+            <span class="font-display text-lg text-white">Pine Peak Digital</span
+            >
+          </a>
+          <div class="block lg:hidden">
+            <MenuIcon class="w-5 h-5 text-frost" />
+          </div>
         </div>
-      </div>
-      <MenuItems class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0">
-        <ul class="flex flex-col lg:flex-row lg:gap-3">
-          {
-            menuitems.map((item, index) => (
-              <>
-                {item.children && (
-                  <Dropdown
-                    title={item.title}
-                    children={item.children}
-                    lastItem={index === menuitems.length - 1}
-                  />
-                )}
+        <MenuItems
+          class="hidden w-full lg:w-auto mt-4 lg:flex lg:mt-0 border-t border-white/[0.06] lg:border-0 pt-4 lg:pt-0">
+          <ul class="flex flex-col lg:flex-row lg:gap-1">
+            {
+              menuitems.map((item, index) => (
+                <>
+                  {item.children && (
+                    <Dropdown
+                      title={item.title}
+                      children={item.children}
+                      lastItem={index === menuitems.length - 1}
+                    />
+                  )}
 
-                {!item.children && (
-                  <li>
-                    <a
-                      href={item.path}
-                      class="flex lg:px-3 py-2 items-center text-gray-600 hover:text-gray-900">
-                      <span> {item.title}</span>
-                      {item.badge && (
-                        <span class="ml-1 px-2 py-0.5 text-[10px] animate-pulse font-semibold uppercase text-white bg-indigo-600 rounded-full">
-                          New
-                        </span>
-                      )}
-                    </a>
-                  </li>
-                )}
-              </>
-            ))
-          }
-        </ul>
-        <div class="lg:hidden flex items-center mt-3 gap-4">
-          <Link href="/contact" size="md" block>Get Started</Link>
+                  {!item.children && (
+                    <li>
+                      <a
+                        href={item.path}
+                        class="flex lg:px-4 py-2 items-center text-sm text-frost hover:text-white transition-colors duration-200">
+                        <span>{item.title}</span>
+                        {item.badge && (
+                          <span class="ml-2 px-2 py-0.5 text-[10px] font-semibold uppercase text-white bg-sage rounded-full">
+                            New
+                          </span>
+                        )}
+                      </a>
+                    </li>
+                  )}
+                </>
+              ))
+            }
+          </ul>
+          <div class="lg:hidden flex items-center mt-4 gap-4 pb-2">
+            <Link href="/contact" size="md" block>Get Started</Link>
+          </div>
+        </MenuItems>
+      </Astronav>
+      <div>
+        <div class="hidden lg:flex items-center gap-4">
+          <Link href="/contact" size="md">Get Started</Link>
         </div>
-      </MenuItems>
-    </Astronav>
-    <div>
-      <div class="hidden lg:flex items-center gap-4">
-        <Link href="/contact" size="md">Get Started</Link>
       </div>
-    </div>
-  </header>
-</Container>
+    </nav>
+  </Container>
+</header>

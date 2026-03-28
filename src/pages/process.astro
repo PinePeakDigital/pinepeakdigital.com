@@ -10,60 +10,71 @@ import Cta from "@components/cta.astro";
   <Container>
     <Sectionhead>
       <Fragment slot="title">Process</Fragment>
-      <Fragment slot="desc">How we take your project from idea to done</Fragment
-      >
+      <Fragment slot="desc">How we take your project from idea to done</Fragment>
     </Sectionhead>
 
-    <div>
+    <div class="max-w-3xl mx-auto">
       {
-        data.steps.map((step) => (
-          <div class="mt-16">
-            <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 ">
-              {step.name}
-            </h2>
-            <p class="mt-4 text-lg text-gray-600 max-w-xl">
-              {step.description}
-            </p>
+        data.steps.map((step, i) => (
+          <div class="mt-16 relative pl-12 border-l border-white/[0.06]">
+            <div class="absolute left-0 top-0 -translate-x-1/2 w-8 h-8 rounded-full bg-sage/15 text-sage flex items-center justify-center text-sm font-semibold border border-sage/20">
+              {i + 1}
+            </div>
+            <h2 class="font-display text-2xl text-white">{step.name}</h2>
+            <p class="mt-3 text-frost leading-relaxed">{step.description}</p>
 
             {step.notes && (
-              <p class="mt-4 text-gray-600 max-w-xl">{step.notes}</p>
+              <p class="mt-3 text-frost-dark text-sm leading-relaxed">
+                {step.notes}
+              </p>
             )}
 
             {step.deliverables && (
-              <div>
-                <h3 class="mt-4 text-lg font-semibold">Deliverables</h3>
-                <ul class="list-disc">
+              <div class="mt-5">
+                <h3 class="text-sm font-semibold text-white uppercase tracking-wider">
+                  Deliverables
+                </h3>
+                <ul class="mt-2 space-y-1.5">
                   {step.deliverables.map((item) => (
-                    <li class="mt-2 ml-4 text-gray-600">{item}</li>
+                    <li class="text-frost text-sm flex items-start gap-2">
+                      <span class="text-sage mt-1 text-xs">&#9679;</span>
+                      {item}
+                    </li>
                   ))}
                 </ul>
               </div>
             )}
 
             {step.meeting && (
-              <div class="mt-4">
-                <div class="flex flex-col md:flex-row">
-                  <div class="flex-1 pr-4">
-                    <h3 class="mt-4 text-lg font-semibold">Attendees</h3>
-                    <ul class="list-disc">
+              <div class="mt-6 bg-navy-700/30 border border-white/[0.06] rounded-lg p-5">
+                <div class="grid md:grid-cols-3 gap-6">
+                  <div>
+                    <h3 class="text-xs font-semibold text-frost-dark uppercase tracking-wider mb-3">
+                      Attendees
+                    </h3>
+                    <ul class="space-y-1.5">
                       {step.meeting.attendees.map((item) => (
-                        <li class="mt-2 ml-4 text-gray-600">{item}</li>
+                        <li class="text-frost text-sm">{item}</li>
                       ))}
                     </ul>
                   </div>
-                  <div class="flex-1 pr-4">
-                    <h3 class="mt-4 text-lg font-semibold">Agenda</h3>
-                    <ul class="list-disc">
+                  <div>
+                    <h3 class="text-xs font-semibold text-frost-dark uppercase tracking-wider mb-3">
+                      Agenda
+                    </h3>
+                    <ul class="space-y-1.5">
                       {step.meeting.agenda.map((item) => (
-                        <li class="mt-2 ml-4 text-gray-600">{item}</li>
+                        <li class="text-frost text-sm">{item}</li>
                       ))}
                     </ul>
                   </div>
-                  <div class="flex-1">
-                    <h3 class="mt-4 text-lg font-semibold">Deliverables</h3>
-                    <ul class="list-disc">
+                  <div>
+                    <h3 class="text-xs font-semibold text-frost-dark uppercase tracking-wider mb-3">
+                      Deliverables
+                    </h3>
+                    <ul class="space-y-1.5">
                       {step.meeting.deliverables.map((item) => (
-                        <li class="mt-2 ml-4 text-gray-600">{item}</li>
+                        <li class="text-frost text-sm">{item}</li>
                       ))}
                     </ul>
                   </div>

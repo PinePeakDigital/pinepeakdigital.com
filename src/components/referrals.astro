@@ -1,7 +1,4 @@
 ---
-// @ts-ignore
-import { Icon } from "astro-icon/components";
-
 const referrals: {
   title: string;
   description: string;
@@ -10,52 +7,48 @@ const referrals: {
   {
     title: "Matthew Leffler",
     description:
-      "I've worked with few people able to bring the level of exactness and rigor that Nathan brings to his work. Nathan and I have worked together in a variety of roles over the last 10 years. He is process-driven, relentlessly refining and curating for greater efficiency and higher-quality outcomes. I’ve always appreciated his care for his craft and the continual learning and insights he brings to a team.",
+      "I've worked with few people able to bring the level of exactness and rigor that Nathan brings to his work. Nathan and I have worked together in a variety of roles over the last 10 years. He is process-driven, relentlessly refining and curating for greater efficiency and higher-quality outcomes. I've always appreciated his care for his craft and the continual learning and insights he brings to a team.",
     image: "matthew_leffler.jpg",
   },
   {
     title: "Alistair Huong",
     description:
-      "I’ve had the opportunity to work with Nathan in different capacities for over 10 years, and specifically in his role as a software developer in the context of AudioVerse. He is meticulous, thoughtful, and easy to work with. He possesses a natural conscientiousness about the details, is forward-thinking about potential risks, and blends it all with a good sense of aesthetics. I’ve appreciated his can-do attitude, even with new ideas and technologies, and his willingness to collaborate with all stakeholders. His excellent communication skills are a real asset to complement his technical capabilities.",
+      "I've had the opportunity to work with Nathan in different capacities for over 10 years, and specifically in his role as a software developer in the context of AudioVerse. He is meticulous, thoughtful, and easy to work with. He possesses a natural conscientiousness about the details, is forward-thinking about potential risks, and blends it all with a good sense of aesthetics. I've appreciated his can-do attitude, even with new technologies, and his willingness to collaborate with all stakeholders. His excellent communication skills are a real asset to complement his technical capabilities.",
     image: "alistair_huong.jpg",
   },
   {
     title: "Daniel Reeves",
-    description: "Working with Nathan and Pine Peak Digital is a delight. He's fair-minded and diligent and thoughtful. You can see his handiwork especially in the design of the Beeminder blog, with much more behind the scenes. Highly recommended.",
+    description:
+      "Working with Nathan and Pine Peak Digital is a delight. He's fair-minded and diligent and thoughtful. You can see his handiwork especially in the design of the Beeminder blog, with much more behind the scenes. Highly recommended.",
     image: "daniel_reeves.jpeg",
   },
 ];
 ---
 
-<div class="mt-24">
-  <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+<div class="mt-24 lg:mt-32">
+  <h2 class="font-display text-3xl lg:text-4xl text-white">
     What people are saying
   </h2>
-  <p class="text-lg mt-4 text-slate-600">
+  <p class="text-lg mt-4 text-frost max-w-2xl">
     We can talk all we want about how great we are, but we think it's better to
-    let our clients and partners do the talking. Here's what some of them have
-    to say about working with us.
+    let our clients and partners do the talking.
   </p>
 </div>
 
-<div class="grid md:grid-cols-3 mt-16 gap-16">
+<div class="grid md:grid-cols-3 mt-12 gap-6 lg:gap-8">
   {
-    referrals.map((item, i) => (
-      <div class="flex gap-4 items-start">
-        <div class="flex flex-col gap-1">
-          <div class="flex items-center gap-4">
-            <img
-              src={item.image}
-              alt={item.title}
-              class="rounded-full w-12 h-12"
-            />
-            <h3 class="font-semibold text-lg">{item.title}</h3>{" "}
-          </div>
-          <div>
-            <p class="text-slate-500 mt-2 leading-relaxed description">
-              "{item.description}"
-            </p>
-          </div>
+    referrals.map((item) => (
+      <div class="bg-navy-700/50 border border-white/[0.06] rounded-lg p-6 lg:p-8 flex flex-col">
+        <div class="flex items-center gap-4 mb-5">
+          <img
+            src={item.image}
+            alt={item.title}
+            class="rounded-full w-11 h-11 object-cover ring-2 ring-white/10"
+          />
+          <h3 class="font-medium text-white">{item.title}</h3>
+        </div>
+        <div class="border-l-2 border-sage/30 pl-4">
+          <p class="text-frost text-sm leading-relaxed">{item.description}</p>
         </div>
       </div>
     ))
