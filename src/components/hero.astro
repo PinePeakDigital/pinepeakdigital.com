@@ -5,16 +5,38 @@ import Container from "@components/container.astro";
 
 <section
   class="relative bg-gradient-to-b from-navy-800 via-navy-900 to-midnight pt-36 pb-48 md:pt-44 md:pb-56 lg:pt-52 lg:pb-64 overflow-hidden">
-  <!-- Subtle atmospheric glow -->
+  <!-- Film grain texture -->
   <div
-    class="absolute top-20 left-[15%] w-[500px] h-[400px] bg-navy-600 rounded-full blur-[160px] opacity-30 pointer-events-none"
+    class="absolute inset-0 opacity-[0.035] pointer-events-none mix-blend-overlay"
+    style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E&quot;);"
+  ></div>
+
+  <!-- Topographic contour map — full background -->
+  <div
+    class="absolute inset-0 pointer-events-none opacity-[0.07]"
+    style="background-image: url('/topo.svg'); background-size: cover; background-position: center;"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Animated atmospheric glows -->
+  <div
+    class="hero-glow-1 absolute top-20 left-[15%] w-[500px] h-[400px] bg-navy-600 rounded-full blur-[160px] opacity-30 pointer-events-none"
   ></div>
   <div
-    class="absolute top-40 right-[10%] w-[300px] h-[300px] bg-navy-500 rounded-full blur-[120px] opacity-20 pointer-events-none"
+    class="hero-glow-2 absolute top-40 right-[10%] w-[300px] h-[300px] bg-navy-500 rounded-full blur-[120px] opacity-20 pointer-events-none"
   ></div>
 
   <Container class="relative z-10">
     <div class="max-w-3xl">
+      <!-- Typographic accent -->
+      <div class="flex items-center gap-3 mb-8">
+        <div class="h-px w-10 bg-sage-light/60"></div>
+        <span
+          class="text-frost-dark text-xs font-medium uppercase tracking-[0.2em]"
+          >Web Development Agency</span
+        >
+      </div>
+
       <h1
         class="font-display text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] text-white leading-[1.05] tracking-tight">
         Building the<br />Modern Web
@@ -31,23 +53,55 @@ import Container from "@components/container.astro";
     </div>
   </Container>
 
-  <!-- Mountain ridgeline decoration -->
+  <!-- 3-layer mountain ridgeline -->
   <div class="absolute bottom-0 left-0 right-0 pointer-events-none">
     <svg
-      class="w-full h-20 md:h-28 lg:h-36"
-      viewBox="0 0 1440 160"
+      class="w-full h-24 md:h-36 lg:h-44"
+      viewBox="0 0 1440 200"
       preserveAspectRatio="none"
       fill="none"
       xmlns="http://www.w3.org/2000/svg">
-      <!-- Distant ridge -->
+      <!-- Far ridge -->
       <path
-        d="M0,160 V95 C90,80 150,58 240,65 C330,72 400,48 480,40 C560,32 640,52 720,56 C800,60 880,36 960,30 C1040,24 1120,46 1200,50 C1280,54 1360,40 1440,62 V160Z"
+        d="M0,200 V125 C100,112 180,80 290,88 C400,96 460,62 580,52 C700,42 780,70 900,78 C1020,86 1100,55 1220,46 C1320,40 1400,65 1440,72 V200Z"
         class="fill-midnight"
-        opacity="0.45"></path>
+        opacity="0.3"></path>
+      <!-- Mid ridge -->
+      <path
+        d="M0,200 V148 C80,138 155,100 270,108 C385,116 450,76 570,66 C690,56 790,84 910,92 C1030,100 1110,68 1230,58 C1330,52 1410,78 1440,85 V200Z"
+        class="fill-midnight"
+        opacity="0.55"></path>
       <!-- Near ridge -->
       <path
-        d="M0,160 V115 C70,100 130,76 200,80 C270,84 340,52 420,45 C500,38 580,58 660,64 C740,70 820,32 900,26 C980,20 1060,48 1140,52 C1220,56 1300,38 1440,50 V160Z"
+        d="M0,200 V165 C70,156 140,120 250,128 C360,136 430,92 550,82 C670,72 770,98 890,106 C1010,114 1090,80 1210,72 C1310,66 1400,88 1440,95 V200Z"
         class="fill-midnight"></path>
     </svg>
   </div>
 </section>
+
+<style>
+  @keyframes glow-drift {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(18px, -12px);
+    }
+  }
+  @keyframes glow-drift-alt {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(-12px, 16px);
+    }
+  }
+  .hero-glow-1 {
+    animation: glow-drift 14s ease-in-out infinite;
+  }
+  .hero-glow-2 {
+    animation: glow-drift-alt 18s ease-in-out infinite;
+  }
+</style>
