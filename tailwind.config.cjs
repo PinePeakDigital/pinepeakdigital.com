@@ -37,6 +37,10 @@ module.exports = {
           "Georgia",
           ...defaultTheme.fontFamily.serif,
         ],
+        mono: [
+          "DM Mono",
+          ...defaultTheme.fontFamily.mono,
+        ],
       },
     },
   },
