@@ -33,7 +33,7 @@ module.exports = {
           ...defaultTheme.fontFamily.sans,
         ],
         display: [
-          "DM Serif Display",
+          "IBM Plex Serif",
           "Georgia",
           ...defaultTheme.fontFamily.serif,
         ],

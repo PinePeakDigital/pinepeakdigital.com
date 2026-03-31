@@ -23,9 +23,9 @@ importers:
       '@fontsource-variable/outfit':
         specifier: ^5.2.8
         version: 5.2.8
-      '@fontsource/dm-serif-display':
-        specifier: ^5.2.8
-        version: 5.2.8
+      '@fontsource/ibm-plex-serif':
+        specifier: ^5.2.7
+        version: 5.2.7
       '@fontsource/space-mono':
         specifier: ^5.2.9
         version: 5.2.9
@@ -414,8 +414,8 @@ packages:
   '@fontsource-variable/outfit@5.2.8':
     resolution: {integrity: sha512-4oUDCZx/Tcz6HZP423w/niqEH31Gks5IsqHV2ZZz1qKHaVIZdj2f0/S1IK2n8jl6Xo0o3N+3RjNHlV9R73ozQA==}
 
-  '@fontsource/dm-serif-display@5.2.8':
-    resolution: {integrity: sha512-GYSDSlGU6vyhv9a5MwaiVNf9HCuSVpK8hEFRyG4NNDHCDeHiX7YHDAcWsaoLKKcfXLgWG9YkBkk9T3SxM4rAjQ==}
+  '@fontsource/ibm-plex-serif@5.2.7':
+    resolution: {integrity: sha512-04owmc2OQQ/DAMjXjEMJc+7V4dBVmR01aIFOg4cuqS8pQ4HbvtlYs/u6+O0vCt21EMx5M/azIbgx43iKyisEOA==}
 
   '@fontsource/space-mono@5.2.9':
     resolution: {integrity: sha512-b61faFOHEISQ/pD25G+cfGY9o/WW6lRv6hBQQfpWvEJ4y1V+S4gmth95EVyBE2VL3qDYHeVQ8nBzrplzdXTDDg==}
@@ -3291,7 +3291,7 @@ snapshots:
 
   '@fontsource-variable/outfit@5.2.8': {}
 
-  '@fontsource/dm-serif-display@5.2.8': {}
+  '@fontsource/ibm-plex-serif@5.2.7': {}
 
   '@fontsource/space-mono@5.2.9': {}
 
