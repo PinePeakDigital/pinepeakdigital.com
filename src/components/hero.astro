@@ -4,7 +4,7 @@ import Container from "@components/container.astro";
 ---
 
 <section
-  class="relative bg-gradient-to-b from-navy-800 via-navy-900 to-midnight pt-36 pb-48 md:pt-44 md:pb-56 lg:pt-52 lg:pb-64 overflow-hidden">
+  class="relative bg-gradient-to-b from-navy-800 via-navy-900 to-midnight pt-36 pb-24 md:pt-44 md:pb-32 lg:pt-52 lg:pb-36 overflow-hidden">
   <!-- Film grain texture -->
   <div
     class="absolute inset-0 opacity-[0.035] pointer-events-none mix-blend-overlay"
@@ -31,11 +31,11 @@ import Container from "@components/container.astro";
       <div>
         <!-- Typographic accent -->
         <div class="flex items-center gap-3 mb-8">
-          <div class="h-px w-10 bg-sage-light/60"></div>
           <span
             class="font-mono text-sage-light text-xs uppercase tracking-[0.15em]"
             >> Web Development Agency</span
           >
+          <div class="h-px w-10 bg-sage-light/60"></div>
         </div>
 
         <h1
@@ -64,30 +64,6 @@ import Container from "@components/container.astro";
     </div>
   </Container>
 
-  <!-- 3-layer mountain ridgeline -->
-  <div class="absolute bottom-0 left-0 right-0 pointer-events-none">
-    <svg
-      class="w-full h-24 md:h-36 lg:h-44"
-      viewBox="0 0 1440 200"
-      preserveAspectRatio="none"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg">
-      <!-- Far ridge -->
-      <path
-        d="M0,200 V125 C100,112 180,80 290,88 C400,96 460,62 580,52 C700,42 780,70 900,78 C1020,86 1100,55 1220,46 C1320,40 1400,65 1440,72 V200Z"
-        class="fill-midnight"
-        opacity="0.3"></path>
-      <!-- Mid ridge -->
-      <path
-        d="M0,200 V148 C80,138 155,100 270,108 C385,116 450,76 570,66 C690,56 790,84 910,92 C1030,100 1110,68 1230,58 C1330,52 1410,78 1440,85 V200Z"
-        class="fill-midnight"
-        opacity="0.55"></path>
-      <!-- Near ridge -->
-      <path
-        d="M0,200 V165 C70,156 140,120 250,128 C360,136 430,92 550,82 C670,72 770,98 890,106 C1010,114 1090,80 1210,72 C1310,66 1400,88 1440,95 V200Z"
-        class="fill-midnight"></path>
-    </svg>
-  </div>
 </section>
 
 <style>
