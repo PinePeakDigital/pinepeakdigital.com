@@ -2,7 +2,7 @@ services:
   - type: web
     name: ppd
     runtime: static
-    buildCommand: npm i -g pnpm && pnpm install && pnpm run build
+    buildCommand: npm i -g pnpm@11.5.3 && pnpm install && pnpm run build
     staticPublishPath: ./dist
     pullRequestPreviewsEnabled: true
     envVars:
