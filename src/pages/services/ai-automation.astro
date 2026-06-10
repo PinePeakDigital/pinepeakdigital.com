@@ -1,0 +1,162 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Cta from "@components/cta.astro";
+import Link from "@components/ui/link.astro";
+import { Tick } from "@components/ui/icons";
+
+// Copy is clay; Nathan writes the final words.
+const deliverables = [
+  "Support triage & auto-drafted replies",
+  "Billing, dunning & subscription edge cases",
+  "Onboarding & lifecycle automation",
+  "Internal dev tooling: PR triage, CI fixes, codegen",
+  "Reporting, metrics & data pipelines",
+  "Data cleanup & migrations",
+];
+
+const ladder = [
+  {
+    step: "01",
+    name: "Automation Audit",
+    summary:
+      "A fixed-price diagnostic. I find where automation will save you the most time and money, with rough numbers on each. The report is yours to keep even if we stop there.",
+  },
+  {
+    step: "02",
+    name: "First Build",
+    summary:
+      "I build the highest-value automation from the audit, or we build it together if you'd rather. Fixed scope and price, with one clear result. The audit fee comes off the build.",
+  },
+  {
+    step: "03",
+    name: "Ongoing Retainer",
+    summary:
+      "Your automation person on call. I keep things working as the tools change, build new automations, and help you decide what to tackle next. I can run it all for you, or coach your team to own it.",
+  },
+];
+
+const proof = [
+  "TaskRatchet, my own SaaS, runs on billing and ops automation I built",
+  "A pile of open-source dev tooling and Claude Code workflows",
+  "narthbugz, my time-tracking tool, with automated reporting",
+  "Years building automation tools in the Beeminder ecosystem",
+];
+---
+
+<Layout title="AI Automation">
+  <!-- Hero -->
+  <section
+    class="relative bg-gradient-to-b from-navy-800 via-navy-900 to-midnight pt-36 pb-20 md:pt-44 md:pb-28 overflow-hidden">
+    <div
+      class="absolute top-24 left-[20%] w-[420px] h-[320px] bg-navy-600 rounded-full blur-[140px] opacity-30 pointer-events-none"
+      aria-hidden="true">
+    </div>
+    <Container class="relative z-10">
+      <div class="max-w-3xl">
+        <div class="flex items-center gap-3 mb-8">
+          <span class="font-mono text-sage-light text-xs uppercase tracking-[0.15em]"
+            >&gt; AI Automation</span
+          >
+          <div class="h-px w-10 bg-sage-light/60"></div>
+        </div>
+        <h1
+          class="font-display text-4xl md:text-5xl lg:text-6xl text-white leading-[1.08] tracking-tight">
+          AI automation that<br />actually keeps working
+        </h1>
+        <p class="mt-8 text-lg md:text-xl text-frost leading-relaxed">
+          I help indie software founders get their time back. I build the
+          automations that handle your busywork and keep them running as the
+          tools underneath them change. I run my own SaaS on the same stack.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row gap-4">
+          <Link href="/contact">Start with an audit</Link>
+          <Link href="#how" style="outline">See how it works</Link>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <div class="h-px bg-navy-400/40"></div>
+
+  <Container>
+    <!-- What you're really buying -->
+    <section class="mt-24 md:mt-32 max-w-3xl">
+      <span class="font-mono text-sage-light text-xs uppercase tracking-[0.15em]"
+        >The point</span
+      >
+      <p class="mt-6 font-display text-2xl md:text-3xl text-white leading-snug">
+        You lose hours every week to support tickets, billing, onboarding,
+        reporting, and dev busywork. I automate that work so you get the time
+        back, without having to learn this stuff yourself or hire a full-time
+        engineer.
+      </p>
+    </section>
+
+    <!-- What I can automate -->
+    <section class="mt-24 md:mt-32">
+      <h2 class="font-display text-3xl md:text-4xl text-white tracking-tight">
+        What I can automate
+      </h2>
+      <ul class="grid sm:grid-cols-2 gap-x-10 gap-y-4 mt-10 max-w-4xl">
+        {
+          deliverables.map((item) => (
+            <li class="flex items-start gap-3 text-frost text-lg">
+              <Tick class="w-6 h-6 text-sage shrink-0" />
+              <span>{item}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <!-- How it works (the ladder) -->
+    <section id="how" class="mt-24 md:mt-32 scroll-mt-24">
+      <h2 class="font-display text-3xl md:text-4xl text-white tracking-tight">
+        How it works
+      </h2>
+      <p class="text-lg mt-4 text-frost max-w-2xl">
+        We start with one automation and only keep going if it pays off, so
+        you're never committing to everything up front.
+      </p>
+      <div class="grid md:grid-cols-3 gap-6 mt-12">
+        {
+          ladder.map((rung) => (
+            <div class="border border-white/[0.08] bg-navy-700/30 rounded-lg p-6 flex flex-col">
+              <span class="font-mono text-sage-light text-sm">{rung.step}</span>
+              <h3 class="font-display text-xl text-white mt-3">{rung.name}</h3>
+              <p class="text-frost mt-3 leading-relaxed">{rung.summary}</p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Why me -->
+    <section class="mt-24 md:mt-32 max-w-3xl">
+      <span class="font-mono text-sage-light text-xs uppercase tracking-[0.15em]"
+        >Why me</span
+      >
+      <h2
+        class="font-display text-3xl md:text-4xl text-white tracking-tight mt-6">
+        I run my own businesses on this
+      </h2>
+      <p class="text-lg mt-4 text-frost leading-relaxed">
+        I'm not selling you a strategy deck. The automation I'd build for you is
+        the same kind already running my own software business.
+      </p>
+      <ul class="grid gap-y-4 mt-8">
+        {
+          proof.map((item) => (
+            <li class="flex items-start gap-3 text-frost text-lg">
+              <Tick class="w-6 h-6 text-sage shrink-0" />
+              <span>{item}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <Cta />
+  </Container>
+</Layout>

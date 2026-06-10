@@ -6,13 +6,17 @@ import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 
 const menuitems: {
   title: string;
-  path: string;
+  path?: string;
   badge?: boolean;
   children?: { title: string; path: string }[];
 }[] = [
   {
     title: "Home",
     path: "/",
+  },
+  {
+    title: "Services",
+    children: [{ title: "AI Automation", path: "/services/ai-automation" }],
   },
   {
     title: "About",
