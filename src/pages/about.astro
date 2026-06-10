@@ -19,24 +19,26 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
       <Fragment slot="desc">We love building for the web.</Fragment>
     </Sectionhead>
 
-    <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-4xl mt-12">
+    <div class="grid md:grid-cols-3 gap-8 mx-auto max-w-4xl mt-16">
       {
         publishedTeamMembers.map((teamMemberEntry) => (
           <div class="group">
-            <div class="w-full aspect-square">
+            <div class="w-full aspect-square overflow-hidden rounded-lg border border-white/[0.06]">
               <Picture
                 src={teamMemberEntry.data.avatar.src}
                 alt={teamMemberEntry.data.avatar.alt}
                 sizes="(max-width: 800px) 100vw, 400px"
                 width={400}
                 height={400}
-                class="w-full rounded transition group-hover:-translate-y-1 group-hover:shadow-xl bg-white object-cover object-center aspect-square"
+                class="w-full object-cover object-center aspect-square transition-transform duration-300 group-hover:scale-[1.02]"
               />
             </div>
 
-            <div class="mt-4 text-center">
-              <h2 class="text-lg text-gray-800">{teamMemberEntry.data.name}</h2>
-              <h3 class="text-sm text-slate-500">
+            <div class="mt-5 text-center">
+              <h2 class="text-lg text-white font-medium">
+                {teamMemberEntry.data.name}
+              </h2>
+              <h3 class="text-sm text-frost-dark mt-1">
                 {teamMemberEntry.data.title}
               </h3>
             </div>

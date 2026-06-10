@@ -2,8 +2,9 @@
 import { SEO } from "astro-seo";
 import Footer from "@components/footer.astro";
 import Navbar from "@components/navbar/navbar.astro";
-import "@fontsource-variable/inter/index.css";
-import "@fontsource-variable/bricolage-grotesque";
+import "@fontsource/ibm-plex-serif/700.css";
+import "@fontsource/space-mono";
+import "@fontsource-variable/outfit";
 
 export interface Props {
   title: string;
@@ -31,16 +32,10 @@ const makeTitle = title
     <link rel="icon" href="https://fav.farm/⛰️" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
     <SEO
       title={makeTitle}
-      description="Astroship is a starter website template for Astro built with TailwindCSS."
+      description="Pine Peak Digital is a web development agency specializing in modern full-stack applications. We build fast, secure, and scalable websites, web apps, and backends."
       canonical={canonicalURL}
-      twitter={{
-        creator: "@surjithctly",
-        site: "@web3templates",
-        card: "summary_large_image",
-      }}
       openGraph={{
         basic: {
           url: canonicalURL,
@@ -49,20 +44,45 @@ const makeTitle = title
           image: resolvedImageWithDomain,
         },
         image: {
-          alt: "Pine Peak Digital Homepage Screenshot",
+          alt: "Pine Peak Digital Homepage",
         },
       }}
     />
   </head>
-  <body>
+  <body class="bg-midnight text-white antialiased flex flex-col min-h-screen">
     <Navbar />
-    <slot />
+    <main class="flex-grow">
+      <slot />
+    </main>
     <Footer />
     <style is:global>
-      /* Improve Page speed */
-      /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
       img {
         content-visibility: auto;
+      }
+
+      ::selection {
+        background-color: rgba(107, 158, 116, 0.3);
+        color: white;
+      }
+
+      /* Prose overrides for dark mode */
+      .prose {
+        --tw-prose-body: #8ea4c4;
+        --tw-prose-headings: #ffffff;
+        --tw-prose-lead: #b4c5dc;
+        --tw-prose-links: #83b68b;
+        --tw-prose-bold: #ffffff;
+        --tw-prose-counters: #5a7399;
+        --tw-prose-bullets: #5a7399;
+        --tw-prose-hr: #1e3050;
+        --tw-prose-quotes: #b4c5dc;
+        --tw-prose-quote-borders: #1e3050;
+        --tw-prose-captions: #5a7399;
+        --tw-prose-code: #ffffff;
+        --tw-prose-pre-code: #b4c5dc;
+        --tw-prose-pre-bg: #111d35;
+        --tw-prose-th-borders: #1e3050;
+        --tw-prose-td-borders: #162544;
       }
     </style>
   </body>

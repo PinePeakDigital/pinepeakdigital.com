@@ -8,14 +8,17 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "a11y": "node scripts/a11y.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^3.1.2",
     "@astrojs/sitemap": "^3.1.6",
     "@astrojs/tailwind": "^5.1.0",
-    "@fontsource-variable/bricolage-grotesque": "^5.0.6",
     "@fontsource-variable/inter": "^5.0.19",
+    "@fontsource-variable/outfit": "^5.2.8",
+    "@fontsource/ibm-plex-serif": "^5.2.7",
+    "@fontsource/space-mono": "^5.2.9",
     "@iconify-json/bx": "^1.1.10",
     "@iconify-json/simple-icons": "^1.1.109",
     "@iconify-json/uil": "^1.1.8",
@@ -29,6 +32,12 @@
   },
   "devDependencies": {
     "@rollup/plugin-yaml": "^4.1.2",
+    "pa11y": "^9.1.1",
     "prettier-plugin-astro": "^0.14.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "puppeteer"
+    ]
   }
 }

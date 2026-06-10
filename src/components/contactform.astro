@@ -2,8 +2,6 @@
 import Button from "./ui/button.astro";
 ---
 
-<!-- To make this contact form work, create your free access key from https://web3forms.com/
-     Then you will get all form submissions in your email inbox. -->
 <form
   action="https://api.web3forms.com/submit"
   method="POST"
@@ -15,14 +13,15 @@ import Button from "./ui/button.astro";
     name="access_key"
     value="812464b3-4034-4585-986f-baa79597f8bb"
   />
-  <!-- Create your free access key from https://web3forms.com/ -->
-  <input type="checkbox" class="hidden" style="display:none" name="botcheck" />
+  <input type="checkbox" class="hidden" style="display:none" name="botcheck" aria-hidden="true" tabindex="-1" />
   <div class="mb-5">
+    <label for="full_name" class="sr-only">Full Name</label>
     <input
+      id="full_name"
       type="text"
       placeholder="Full Name"
       required
-      class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-none focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
+      class="w-full px-4 py-3 bg-navy-700/50 border border-white/[0.08] placeholder:text-frost-dark rounded-md outline-none text-white focus:ring-2 focus:border-sage/50 ring-sage/20 transition-all"
       name="name"
     />
     <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
@@ -36,7 +35,7 @@ import Button from "./ui/button.astro";
       placeholder="Email Address"
       name="email"
       required
-      class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-none focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
+      class="w-full px-4 py-3 bg-navy-700/50 border border-white/[0.08] placeholder:text-frost-dark rounded-md outline-none text-white focus:ring-2 focus:border-sage/50 ring-sage/20 transition-all"
     />
     <div class="empty-feedback text-red-400 text-sm mt-1">
       Please provide your email address.
@@ -46,11 +45,13 @@ import Button from "./ui/button.astro";
     </div>
   </div>
   <div class="mb-3">
+    <label for="message" class="sr-only">Your Message</label>
     <textarea
+      id="message"
       name="message"
       required
       placeholder="Your Message"
-      class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-none h-36 focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
+      class="w-full px-4 py-3 bg-navy-700/50 border border-white/[0.08] placeholder:text-frost-dark rounded-md outline-none text-white h-36 focus:ring-2 focus:border-sage/50 ring-sage/20 transition-all resize-none"
     ></textarea>
     <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
       Please enter your message.
@@ -83,6 +84,7 @@ import Button from "./ui/button.astro";
 <script is:inline>
   const form = document.getElementById("form");
   const result = document.getElementById("result");
+  let hideResultTimer;
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -95,7 +97,10 @@ import Button from "./ui/button.astro";
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
 
-    result.innerHTML = "Sending...";
+    clearTimeout(hideResultTimer);
+    result.style.display = "";
+    result.classList.remove("text-sage-light", "text-red-400");
+    result.textContent = "Sending...";
 
     fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -108,22 +113,23 @@ import Button from "./ui/button.astro";
       .then(async (response) => {
         let json = await response.json();
         if (response.status == 200) {
-          result.classList.add("text-green-500");
-          result.innerHTML = json.message;
+          result.classList.add("text-sage-light");
+          result.textContent = json.message;
         } else {
           console.log(response);
-          result.classList.add("text-red-500");
-          result.innerHTML = json.message;
+          result.classList.add("text-red-400");
+          result.textContent = json.message;
         }
       })
       .catch((error) => {
         console.log(error);
-        result.innerHTML = "Something went wrong!";
+        result.classList.add("text-red-400");
+        result.textContent = "Something went wrong!";
       })
       .then(function () {
         form.reset();
         form.classList.remove("was-validated");
-        setTimeout(() => {
+        hideResultTimer = setTimeout(() => {
           result.style.display = "none";
         }, 5000);
       });

@@ -62,20 +62,21 @@ const icons = {
 };
 ---
 
-<div class="mt-24">
-  <h2 class="text-center text-slate-500">
-    A few of the technologies we've used in previous projects
+<div class="mt-24 lg:mt-32">
+  <h2 class="text-center text-frost-dark font-mono text-xs uppercase tracking-widest">
+    Technologies we've used in previous projects
   </h2>
-  <div class="flex gap-8 items-center justify-center mt-10 flex-wrap">
+  <div
+    class="flex gap-7 items-center justify-center mt-10 flex-wrap text-frost-dark/60">
     {
       Object.keys(icons)
-        .sort((a, b) => {
-          if (a < b) return -1;
-          if (a > b) return 1;
-          return 0;
-        })
+        .sort((a, b) => a.localeCompare(b))
         .map((k) => (
-          <Icon class="size-8" name={`simple-icons:${k}`} title={icons[k]} />
+          <Icon
+            class="size-7 hover:text-frost transition-colors duration-200"
+            name={`simple-icons:${k}`}
+            title={icons[k]}
+          />
         ))
     }
   </div>
