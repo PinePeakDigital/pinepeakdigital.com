@@ -1,0 +1,162 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Cta from "@components/cta.astro";
+import Link from "@components/ui/link.astro";
+import { Tick } from "@components/ui/icons";
+
+// Copy is clay; Nathan writes the final words.
+const deliverables = [
+  "New web apps and features, built full-stack",
+  "APIs, backends, and integrations",
+  "Payments and subscriptions with Stripe",
+  "Membership and course platforms (Memberstack, Webflow)",
+  "Fixing performance, reliability, and billing bugs",
+  "Taking over and stabilizing an existing codebase",
+];
+
+const ladder = [
+  {
+    step: "01",
+    name: "Scope",
+    summary:
+      "We start with a short discovery, then I propose how to run it: hourly or fixed-bid, whichever fits your project, plus what I'll build and when.",
+  },
+  {
+    step: "02",
+    name: "Build",
+    summary:
+      "I ship in small increments you can see, so you're never waiting months to find out what you got.",
+  },
+  {
+    step: "03",
+    name: "Maintain",
+    summary:
+      "Once it's live, I can stay on a monthly retainer to keep it healthy, fix what breaks, and build whatever's next.",
+  },
+];
+
+const proof = [
+  "I run my own SaaS, TaskRatchet, and ship production systems where bugs cost real money",
+  "I do ongoing development on Seedtime, a membership and course platform",
+  "Open-source work like buzz, a Beeminder CLI written in Go",
+  "You work with me directly, and I bring in people I trust when a project needs more hands",
+];
+---
+
+<Layout title="Software Development">
+  <!-- Hero -->
+  <section
+    class="relative bg-gradient-to-b from-navy-800 via-navy-900 to-midnight pt-36 pb-20 md:pt-44 md:pb-28 overflow-hidden">
+    <div
+      class="absolute top-24 left-[20%] w-[420px] h-[320px] bg-navy-600 rounded-full blur-[140px] opacity-30 pointer-events-none"
+      aria-hidden="true">
+    </div>
+    <Container class="relative z-10">
+      <div class="max-w-3xl">
+        <div class="flex items-center gap-3 mb-8">
+          <span class="font-mono text-sage-light text-xs uppercase tracking-[0.15em]"
+            >&gt; Software Development</span
+          >
+          <div class="h-px w-10 bg-sage-light/60"></div>
+        </div>
+        <h1
+          class="font-display text-4xl md:text-5xl lg:text-6xl text-white leading-[1.08] tracking-tight">
+          Software that ships,<br />and keeps shipping
+        </h1>
+        <p class="mt-8 text-lg md:text-xl text-frost leading-relaxed">
+          I build, ship, and maintain web software for founders and small teams.
+          I bill the way that fits the work, hourly or fixed-bid, and I stick
+          around to keep it running after launch.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row gap-4">
+          <Link href="/contact">Start a project</Link>
+          <Link href="#how" style="outline">How I work</Link>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <div class="h-px bg-navy-400/40"></div>
+
+  <Container>
+    <!-- The point -->
+    <section class="mt-24 md:mt-32 max-w-3xl">
+      <span class="font-mono text-sage-light text-xs uppercase tracking-[0.15em]"
+        >&gt; The point</span
+      >
+      <p class="mt-6 font-display text-2xl md:text-3xl text-white leading-snug">
+        Most contract work is either a junior you have to manage or an agency
+        that disappears after launch. You get a senior developer who scopes the
+        work honestly and ships it in pieces you can see, then stays on to keep
+        it running.
+      </p>
+    </section>
+
+    <!-- What I build -->
+    <section class="mt-24 md:mt-32">
+      <h2 class="font-display text-3xl md:text-4xl text-white tracking-tight">
+        What I build
+      </h2>
+      <ul class="grid sm:grid-cols-2 gap-x-10 gap-y-4 mt-10 max-w-4xl">
+        {
+          deliverables.map((item) => (
+            <li class="flex items-start gap-3 text-frost text-lg">
+              <Tick class="w-6 h-6 text-sage shrink-0" />
+              <span>{item}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <!-- How I work -->
+    <section id="how" class="mt-24 md:mt-32 scroll-mt-24">
+      <h2 class="font-display text-3xl md:text-4xl text-white tracking-tight">
+        How I work
+      </h2>
+      <p class="text-lg mt-4 text-frost max-w-2xl">
+        Scoped up front, shipped in small pieces, with the option to keep me on
+        after launch.
+      </p>
+      <div class="grid md:grid-cols-3 gap-6 mt-12">
+        {
+          ladder.map((rung) => (
+            <div class="border border-white/[0.08] bg-navy-700/30 rounded-lg p-6 flex flex-col">
+              <span class="font-mono text-sage-light text-sm">{rung.step}</span>
+              <h3 class="font-display text-xl text-white mt-3">{rung.name}</h3>
+              <p class="text-frost mt-3 leading-relaxed">{rung.summary}</p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Why me -->
+    <section class="mt-24 md:mt-32 max-w-3xl">
+      <span class="font-mono text-sage-light text-xs uppercase tracking-[0.15em]"
+        >&gt; Why me</span
+      >
+      <h2
+        class="font-display text-3xl md:text-4xl text-white tracking-tight mt-6">
+        I build yours the way I build mine
+      </h2>
+      <p class="text-lg mt-4 text-frost leading-relaxed">
+        I run my own software businesses, so I build for the people who have to
+        live with the thing after launch, the way I build my own.
+      </p>
+      <ul class="grid gap-y-4 mt-8">
+        {
+          proof.map((item) => (
+            <li class="flex items-start gap-3 text-frost text-lg">
+              <Tick class="w-6 h-6 text-sage shrink-0" />
+              <span>{item}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <Cta />
+  </Container>
+</Layout>
