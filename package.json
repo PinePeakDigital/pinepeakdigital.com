@@ -35,9 +35,5 @@
     "pa11y": "^9.1.1",
     "prettier-plugin-astro": "^0.14.0"
   },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "puppeteer"
-    ]
-  }
+  "packageManager": "pnpm@11.5.3"
 }
