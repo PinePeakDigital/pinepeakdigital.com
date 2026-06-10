@@ -49,9 +49,11 @@ const makeTitle = title
       }}
     />
   </head>
-  <body class="bg-midnight text-white antialiased">
+  <body class="bg-midnight text-white antialiased flex flex-col min-h-screen">
     <Navbar />
-    <slot />
+    <main class="flex-grow">
+      <slot />
+    </main>
     <Footer />
     <style is:global>
       img {
