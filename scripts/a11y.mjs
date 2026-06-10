@@ -12,6 +12,7 @@ const routes = [
 const BASE = process.env.BASE_URL || "http://localhost:4321";
 
 let totalIssues = 0;
+let scanErrors = 0;
 
 for (const route of routes) {
   const url = `${BASE}${route}`;
@@ -30,9 +31,13 @@ for (const route of routes) {
       totalIssues += results.issues.length;
     }
   } catch (err) {
+    scanErrors += 1;
     console.error(`  Error: ${err.message}`);
   }
 }
 
 console.log(`\n=== Total issues: ${totalIssues} ===`);
-process.exit(totalIssues > 0 ? 1 : 0);
+if (scanErrors > 0) {
+  console.error(`=== Total scan errors: ${scanErrors} ===`);
+}
+process.exit(totalIssues > 0 || scanErrors > 0 ? 1 : 0);

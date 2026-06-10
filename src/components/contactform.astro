@@ -84,6 +84,7 @@ import Button from "./ui/button.astro";
 <script is:inline>
   const form = document.getElementById("form");
   const result = document.getElementById("result");
+  let hideResultTimer;
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -96,7 +97,10 @@ import Button from "./ui/button.astro";
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
 
-    result.innerHTML = "Sending...";
+    clearTimeout(hideResultTimer);
+    result.style.display = "";
+    result.classList.remove("text-sage-light", "text-red-400");
+    result.textContent = "Sending...";
 
     fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -110,21 +114,22 @@ import Button from "./ui/button.astro";
         let json = await response.json();
         if (response.status == 200) {
           result.classList.add("text-sage-light");
-          result.innerHTML = json.message;
+          result.textContent = json.message;
         } else {
           console.log(response);
           result.classList.add("text-red-400");
-          result.innerHTML = json.message;
+          result.textContent = json.message;
         }
       })
       .catch((error) => {
         console.log(error);
-        result.innerHTML = "Something went wrong!";
+        result.classList.add("text-red-400");
+        result.textContent = "Something went wrong!";
       })
       .then(function () {
         form.reset();
         form.classList.remove("was-validated");
-        setTimeout(() => {
+        hideResultTimer = setTimeout(() => {
           result.style.display = "none";
         }, 5000);
       });
