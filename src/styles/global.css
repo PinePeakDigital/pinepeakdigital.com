@@ -1,0 +1,31 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-midnight: #0a1628;
+
+  --color-navy-900: #0c1830;
+  --color-navy-800: #0e1b30;
+  --color-navy-700: #111d35;
+  --color-navy-600: #162544;
+  --color-navy-500: #1a2d4d;
+  --color-navy-400: #1e3050;
+  --color-navy-300: #2a3f5f;
+
+  --color-frost: #8ea4c4;
+  --color-frost-light: #b4c5dc;
+  --color-frost-dark: #7b93b4;
+
+  --color-sage: #4f7a56;
+  --color-sage-light: #6b9e74;
+  --color-sage-dark: #3d6344;
+
+  --font-sans:
+    "Outfit Variable", "Outfit", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+  --font-display: "IBM Plex Serif", Georgia, ui-serif, Georgia, Cambria,
+    "Times New Roman", Times, serif;
+  --font-mono: "Space Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
+}
