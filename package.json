@@ -19,7 +19,7 @@
     "@fontsource/ibm-plex-serif": "^5.2.7",
     "@fontsource/space-mono": "^5.2.9",
     "@iconify-json/bx": "^1.1.10",
-    "@iconify-json/simple-icons": "^1.1.109",
+    "@iconify-json/simple-icons": "^1.2.95",
     "@iconify-json/uil": "^1.1.8",
     "@tailwindcss/typography": "^0.5.20",
     "@tailwindcss/vite": "^4.3.3",
